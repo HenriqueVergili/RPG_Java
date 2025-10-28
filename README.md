@@ -1,2 +1,5 @@
 # RPG_Java
-trabalho de POO em Java
+
+javac *.java
+
+java Jogo
