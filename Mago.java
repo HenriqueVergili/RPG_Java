@@ -2,7 +2,7 @@ public class Mago extends Personagem {
 
     public Mago(String nome) {
  
-        super(nome, 80, 18, 5, 1);
+        super(nome, 100, 20, 5, 1);
         
         // Futuramente, poderíamos adicionar "pontosDeMana" aqui.
         this.inventario.adicionarItem(Item.criarBastaoDeMadeira(1));
@@ -28,8 +28,7 @@ public class Mago extends Personagem {
         this.nivel++;
 
         // Lógica do Mago: ganha muito "ataque" (magia)
-        this.pontosVidaMax += 10;
-        this.defesa += 1;
+        this.pontosVidaMax += 15;
         this.ataque += 4; // Ganha muito ataque base
 
         // Cura o jogador totalmente ao subir de nível

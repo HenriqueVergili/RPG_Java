@@ -78,25 +78,25 @@ public class Item implements Comparable<Item> {
 
     public static Item criarPocaoDeCura(int quantidade) {
         return new Item(
-                "Poção de Cura",
-                "Restaura 20 pontos de vida.",
-                "CURA_HP_20",
-                quantidade
-        );
-    }
-
-    public static Item criarPocaoDeCuraGrande(int quantidade) {
-        return new Item(
-                "Poção de Cura Grande",
+                "Pocao de Cura",
                 "Restaura 50 pontos de vida.",
                 "CURA_HP_50",
                 quantidade
         );
     }
 
+    public static Item criarPocaoDeCuraGrande(int quantidade) {
+        return new Item(
+                "Pocao de Cura Grande",
+                "Restaura 100 pontos de vida.",
+                "CURA_HP_100",
+                quantidade
+        );
+    }
+
     public static Item criarPocaoDeMana(int quantidade) {
         return new Item(
-                "Poção de Mana",
+                "Poçao de Mana",
                 "Restaura 20 pontos de mana.",
                 "RESTAURA_MANA_20",
                 quantidade
@@ -105,7 +105,7 @@ public class Item implements Comparable<Item> {
 
     public static Item criarPocaoDeManaGrande(int quantidade) {
         return new Item(
-                "Poção de Mana Grande",
+                "Poçao de Mana Grande",
                 "Restaura 50 pontos de mana.",
                 "RESTAURA_MANA_50",
                 quantidade
@@ -124,7 +124,7 @@ public class Item implements Comparable<Item> {
 
     public static Item criarFlechaMagica(int quantidade) {
         return new Item(
-                "Flecha Mágica",
+                "Flecha Magica",
                 "Causa 10 de dano mágico bônus no próximo ataque.",
                 "DANO_MAGICO_25",
                 quantidade
@@ -140,45 +140,81 @@ public class Item implements Comparable<Item> {
         );
     }
 
-    public static Item criarEspadaDeGelo(int quantidade) {
+    public static Item criarEspadaFrostmourne(int quantidade) {
         return new Item(
                 "Espada Frostmourne",
                 "Uma espada utilizada pelos reis antigos.",
-                "EQUIPAVEL_DANO_50",
+                "EQUIPAVEL_DANO_40",
                 quantidade
         );
     }
 
-    public static Item criarPicareta(int quantidade) {
+    public static Item criarEspadaDeOsso(int quantidade) {
         return new Item(
-                "Picareta",
+                "Espada de Osso",
                 "Uma picareta grande, parece que haviam mineradores por aqui.",
-                "EQUIPAVEL_DANO_15",
+                "EQUIPAVEL_DANO_25",
                 quantidade
         );
     }
 
-    public static Item criarMachado(int quantidade) {
+    public static Item criarMachadoElfico(int quantidade) {
         return new Item(
-                "Machado de Batalha",
-                "Um machado utilizado pelos orcs guerreiros.",
+                "Machado Elfico",
+                "Um machado utilizado pelos antigos elfos",
                 "EQUIPAVEL_DANO_30",
+                quantidade
+        );
+    }
+
+    public static Item criarEspadaDraconica(int quantidade) {
+        return new Item(
+                "Espada Draconica",
+                "Uma espada feita a partir das presas de um dragão.",
+                "EQUIPAVEL_DANO_40",
+                quantidade
+        );
+    }
+
+    public static Item criarGarraDraconica(int quantidade) {
+        return new Item(
+                "Garra Draconica",
+                "Uma garra draconica que emana uma energia indescritível.",
+                "EQUIPAVEL_DANO_40", 
                 quantidade
         );
     }
 
     public static Item criarCetroMagico(int quantidade) {
         return new Item(
-                "Cetro Mágico Dourado",
-                "Um cetro antigo, parece emanar uma energia mística de raios.",
+                "Cetro Magico",
+                "Um cetro que amplifica o poder mágico de quem o empunha.",
                 "EQUIPAVEL_DANO_20", 
+                quantidade
+        );
+    }
+
+    public static Item criarCajadoEletrico(int quantidade) {
+        return new Item(
+                "Cajado Eletrico",
+                "Um cajado que canaliza o poder do trovão.",
+                "EQUIPAVEL_DANO_25", 
+                quantidade
+        );
+    }
+
+    public static Item criarCajadoMedivh(int quantidade) {
+        return new Item(
+                "Cajado de Medivh",
+                "Um cajado poderoso que pertenceu ao grande mago Medivh.",
+                "EQUIPAVEL_DANO_45", 
                 quantidade
         );
     }
 
     public static Item criarBastaoDeMadeira(int quantidade) {
         return new Item(
-                "Graveto Achado na Floresta",
+                "Bastao de Madeira",
                 "Um graveto nada especial, mas nas mãos certas pode ser útil para colocar fogo.",
                 "EQUIPAVEL_DANO_15", 
                 quantidade
@@ -187,9 +223,18 @@ public class Item implements Comparable<Item> {
 
     public static Item criarArcoRachado(int quantidade) {
         return new Item(
-                "Arco Antigo",
+                "Arco Rachado",
                 "Um arco de madeira com uma corda desgastada.",
                 "EQUIPAVEL_DANO_10", 
+                quantidade
+        );
+    }
+
+    public static Item criarArcoThoridal(int quantidade) {
+        return new Item(
+                "Arco Thoridal",
+                "Um arco utilizado pelo maior arqueiro que passou por Azeroth.",
+                "EQUIPAVEL_DANO_30", 
                 quantidade
         );
     }
@@ -199,6 +244,15 @@ public class Item implements Comparable<Item> {
                 "Flechas Simples",
                 "Flechas comuns feitas de madeira e penas.",
                 "DANO_SIMPLES_10", 
+                quantidade
+        );
+    }
+
+    public static Item criarFlechaDeEscama(int quantidade) {
+        return new Item(
+                "Flecha de Escama",
+                "Flecha feita com escamas de dragão, aumenta o dano.",
+                "DANO_SIMPLES_25", 
                 quantidade
         );
     }
@@ -214,7 +268,7 @@ public class Item implements Comparable<Item> {
 
     public static Item criarArmaduraHussita(int quantidade) {
         return new Item(
-                "Armadura Simples",
+                "Armadura Hussita",
                 "Uma armadura simples utilizada pelos antigos Hussitas.",
                 "EQUIPAVEL_DEFESA_10", // <-- NOVO EFEITO!
                 quantidade
@@ -223,9 +277,18 @@ public class Item implements Comparable<Item> {
 
     public static Item criarArcoElfico(int quantidade) {
         return new Item(
-                "Arco Élfico",
+                "Arco Elfico",
                 "Um arco elegante feito pelos elfos, leve e resistente.",
                 "EQUIPAVEL_DANO_20", // <-- NOVO EFEITO!
+                quantidade
+        );
+    }
+
+    public static Item criarArcoDeOsso(int quantidade) {
+        return new Item(
+                "Arco de Osso",
+                "Um arco rustico feito de Ossos humanos.",
+                "EQUIPAVEL_DANO_20",
                 quantidade
         );
     }

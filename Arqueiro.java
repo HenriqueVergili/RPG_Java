@@ -7,6 +7,7 @@ public class Arqueiro extends Personagem {
 
         this.inventario.adicionarItem(Item.criarArcoRachado(1));
         this.inventario.adicionarItem(Item.criarPocaoDeCura(1));
+        this.inventario.adicionarItem(Item.criarFlechaSimples(10));
     }
 
     public Arqueiro(Arqueiro original) {
@@ -25,7 +26,7 @@ public class Arqueiro extends Personagem {
         
         this.pontosVidaMax += 10;
         this.defesa += 2;
-        this.ataque += 3; // Ganha muito ataque base
+        this.ataque += 4; // Ganha muito ataque base
 
         // Cura o jogador totalmente ao subir de nível
         this.pontosVida = this.pontosVidaMax;
