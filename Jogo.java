@@ -228,7 +228,7 @@ public class Jogo {
             }
             
             this.jogador.subirDeNivel();
-
+            menuPosBatalha();
             boolean explorandoOpera = true;
             while(explorandoOpera && this.jogador.isEstaVivo()) { 
             
@@ -241,14 +241,14 @@ public class Jogo {
                 System.out.print("Opçao: ");
 
                 int escolha = lerEscolha(1, 3);
-                menuPosBatalha();
+                
                 if (escolha == 1) {
                     // Chama o primeiro novo método
                     explorarSaguao(); 
                     explorandoOpera = false;
                 } else if (escolha == 2) {
                     // Chama o segundo novo método
-                    explorarSaguao(); 
+                    explorarSegundoAndar(); 
                     explorandoOpera = false;
                 } else {
                     // Opçao 3: Sai do loop
@@ -305,6 +305,59 @@ public class Jogo {
                     // Opçao 3: Sai do loop
                     System.out.println("Você decide que já viu o suficiente e sai da masmorra.");
                     explorandoSacada = false;
+                }
+            }
+        }
+    }
+
+    private void explorarSegundoAndar() {
+        System.out.println("\nVocê sobe as escadas empoeiradas até o segundo andar...");
+        System.out.println("O ar começa a ficar pesado, os degraus parecem nao acabar mais");
+        System.out.println("Ao perder conta dos minutos subindo em vao, você decide pular pela janela mais próxima");
+        System.out.println("O ar fica mais leve, você fica aliviado porém percebe um vento frio soprando.");
+        System.out.println("Com um feroz rugido, você ouve um Dragao incandescente se aproximando");
+
+        Inimigo Wyrm = new Inimigo("Brasas Fumegantes", 160, 20, 18, 2);
+
+        batalhar(Wyrm);
+
+        if (this.jogador.isEstaVivo()) {
+            System.out.println("Após a batalha, você decide vasculhar o corpo do dragao.");
+
+            
+            if (jogador instanceof Guerreiro) {
+                System.out.println("Você percebe que o "+ ANSI_GREEN +"dente do dragao"+ANSI_RESET+ " estranhamentese parece com uma Espada!");
+                jogador.getInventario().adicionarItem(Item.criarEspadaDraconica(1));
+            } else if (jogador instanceof Mago) {
+                System.out.println("Você percebe que a "+ ANSI_GREEN +"garra do dragao"+ANSI_RESET+ " emanava uma energia diferente");
+                jogador.getInventario().adicionarItem(Item.criarGarraDraconica(1));
+            } else if (jogador instanceof Arqueiro) {
+                System.out.println("Você percebe que as "+ ANSI_GREEN +"escamas do dragao "+ANSI_RESET+ "sao extremamente afiadas!");
+                jogador.getInventario().adicionarItem(Item.criarFlechaDeEscama(5));
+            }
+            
+            this.jogador.subirDeNivel();
+            menuPosBatalha();
+            boolean explorandoSegundoAndar = true;
+            while(explorandoSegundoAndar && this.jogador.isEstaVivo()) { 
+            
+                System.out.println("\nApós derrotar o dragao, você continua pela sacada e encontra uma porta");
+                System.out.println("\nAo passar pela porta apenas um caminho possível aparece: Seguir um corredor onde se ve apenas uma luz no fim.");
+                System.out.println("O que você faz?");
+                System.out.println("1. Seguir o corredor em direçao à luz.");
+                System.out.println("2. Sair e voltar ao início.");
+                System.out.print("Opçao: ");
+
+                int escolha = lerEscolha(1, 2);
+                
+                if (escolha == 1) {
+                    // Chama o primeiro novo método
+                    explorarSaguao(); 
+                    explorandoSegundoAndar = false;
+                } else {
+                    // Opçao 2: Sai do loop
+                    System.out.println("Você decide que já viu o suficiente e sai da masmorra.");
+                    explorandoSegundoAndar = false;
                 }
             }
         }
