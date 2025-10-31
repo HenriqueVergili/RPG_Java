@@ -40,16 +40,16 @@ public class Inventario implements Cloneable {
         int indice = this.itens.indexOf(itemParaBuscar);
 
         if (indice != -1) {
-            // --- Item ENCONTRADO ---
+        
             Item itemExistente = this.itens.get(indice);
             int novaQuantidade = itemExistente.getQuantidade() - quantidadeARemover;
 
             if (novaQuantidade <= 0) {
-                // Remove o item da lista
+            
                 this.itens.remove(indice);
                 System.out.println("[Inventario] " + itemExistente.getNome() + " foi completamente usado/removido.");
             } else {
-                // Apenas atualiza a quantidade
+              
                 itemExistente.setQuantidade(novaQuantidade);
                 System.out.println("[Inventario] " + itemExistente.getNome() + " usado. Restam " + novaQuantidade + ".");
             }
@@ -63,55 +63,53 @@ public class Inventario implements Cloneable {
             return;
         }
 
-        // Ordena os itens (isso não muda)
+     
         Collections.sort(this.itens);
 
         System.out.println("\n--- INVENTÁRIO (" + this.itens.size() + " tipos de item) ---");
         
-        // --- INÍCIO DA MUDANÇA ---
+     
         for (Item item : this.itens) {
-            // 1. Pega a representação base (Nome (xQtd) - Descrição)
+           
             String linhaBase = item.toString(); 
             
-            // 2. Pega o efeito do item
+      
             String efeito = item.getEfeito();
-            String bonusTexto = ""; // String para guardar o texto do bônus
+            String bonusTexto = ""; 
 
-            // 3. Verifica se é um item equipável e extrai o bônus
-            if (efeito != null) { // Checagem de segurança
+            if (efeito != null) { 
                 if (efeito.startsWith("EQUIPAVEL_DANO_")) {
                     try {
                         String[] partes = efeito.split("_");
-                        String valor = partes[partes.length - 1]; // Pega o número no final
+                        String valor = partes[partes.length - 1]; 
                         bonusTexto = " (" + ANSI_GREEN + "+ " + valor + " Ataque" + ANSI_RESET + ")";
                     } catch (Exception e) {
-                        // Se der erro ao extrair o número, não mostra nada
+                      
                         bonusTexto = " (Erro ao ler Ataque)"; 
                     }
                 } else if (efeito.startsWith("EQUIPAVEL_DEFESA_")) {
                     try {
                         String[] partes = efeito.split("_");
-                        String valor = partes[partes.length - 1]; // Pega o número no final
+                        String valor = partes[partes.length - 1]; 
                         bonusTexto = " (" + ANSI_BLUE + "+ " + valor + " Defesa" + ANSI_RESET + ")";
                     } catch (Exception e) {
-                        // Se der erro ao extrair o número, não mostra nada
+                       
                         bonusTexto = " (Erro ao ler Defesa)";
                     }
                 }
-                // Adicione mais 'else if' aqui se criar outros tipos de
-                // itens equipáveis (ex: EQUIPAVEL_HP_10)
+                
             }
 
-            // 4. Imprime a linha base + o texto do bônus (se houver)
+        
             System.out.println(linhaBase + bonusTexto); 
         }
-        // --- FIM DA MUDANÇA ---
+     
         
         System.out.println("------------------------------------");
     }
 
     public Item getItem(String nomeItem) {
-        Item itemParaBuscar = new Item(nomeItem, "", "", 1); // Item "falso" para busca
+        Item itemParaBuscar = new Item(nomeItem, "", "", 1); 
         int indice = this.itens.indexOf(itemParaBuscar);
         
         if (indice != -1) {

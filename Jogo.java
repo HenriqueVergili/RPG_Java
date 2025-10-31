@@ -2,14 +2,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * Classe principal do RPG.
- * Contém o método main() e controla o loop do jogo, a criaçao de
- * personagem, a exploraçao e o sistema de batalha.
- *
- * VERSaO 3.0 - Todas as recompensas de evento usam 'instanceof'.
- * Bug de item duplicado corrigido.
- */
+
 public class Jogo {
 
     public static final String ANSI_RED = "\u001b[31m";
@@ -22,7 +15,7 @@ public class Jogo {
     private Personagem jogador;
     private Scanner scanner;
     private boolean estaJogando;
-    private static final Random dado = new Random(); // Dado para eventos do Jogo (ex: fugir)
+    private static final Random dado = new Random();
 
     public static void main(String[] args) {
         Jogo rpg = new Jogo();
@@ -77,13 +70,10 @@ public class Jogo {
                 break;
         }
 
-        // ** CORREÇaO DE BUG **
-        // O bloco de código que adicionava itens duplicados foi removido daqui.
-        // Os itens agora sao corretamente adicionados APENAS
-        // nos construtores de Guerreiro, Mago e Arqueiro.
+        
 
         System.out.println("\nHerói criado com sucesso!");
-        System.out.println(this.jogador); // Usa o toString() de Personagem
+        System.out.println(this.jogador); 
         System.out.println("\nItens Iniciais:");
         this.jogador.getInventario().listarItens();
     }
@@ -151,11 +141,11 @@ public class Jogo {
 
         batalhar(Attumen);
 
-        // Se o jogador sobreviveu, ele sobe de nível e ganha loot
+       
         if (this.jogador.isEstaVivo()) {
             System.out.println("Após a batalha, você encontra algo debaixo do manto de Attumen");
 
-            // --- LÓGICA DE LOOT DINÂMICO (instanceof) ---
+          
             if (jogador instanceof Guerreiro) {
                 System.out.println("Attumen guardava uma " +ANSI_GREEN+"Espada de Osso!"+ANSI_RESET);
                 jogador.getInventario().adicionarItem(Item.criarEspadaDeOsso(1));
@@ -170,9 +160,9 @@ public class Jogo {
             
             this.jogador.subirDeNivel();
             
-            // --- INÍCIO DA MUDANÇA (ADICIONANDO LOOP) ---
+           
             menuPosBatalha();
-            // Este loop fará o menu da caverna repetir
+          
             boolean explorandoEstabulo = true;
             while(explorandoEstabulo && this.jogador.isEstaVivo()) { 
             
@@ -186,17 +176,17 @@ public class Jogo {
                 int escolha = lerEscolha(1, 3);
                 
                 if (escolha == 1) {
-                    // Chama o primeiro novo método
+                   
                     explorarSacada(); 
                     explorandoEstabulo = false;
                 } else if (escolha == 2) {
-                    // Chama o segundo novo método
+                    
                     explorarOpera(); 
                     explorandoEstabulo = false;
                 } else {
-                    // Opçao 3: Sai do loop
+                   
                     System.out.println("Você decide que já viu o suficiente e sai da masmorra.");
-                    explorandoEstabulo = false; // Isso vai quebrar o loop while
+                    explorandoEstabulo = false; 
                 }
             
             } 
@@ -243,21 +233,20 @@ public class Jogo {
                 int escolha = lerEscolha(1, 3);
                 
                 if (escolha == 1) {
-                    // Chama o primeiro novo método
                     explorarSaguao(); 
                     explorandoOpera = false;
                 } else if (escolha == 2) {
-                    // Chama o segundo novo método
+                   
                     explorarSegundoAndar(); 
                     explorandoOpera = false;
                 } else {
-                    // Opçao 3: Sai do loop
+                    
                     System.out.println("Você decide que já viu o suficiente e sai da masmorra.");
-                    explorandoOpera = false; // Isso vai quebrar o loop while
+                    explorandoOpera = false; 
                 }
-            } // --- FIM DA MUDANÇA (LOOP) ---
+            } 
         }
-    }// NOVO MÉTODO
+    }
 
     private void explorarSacada() {
         System.out.println("\nVocê sobe as escadas empoeiradas até a sacada...");

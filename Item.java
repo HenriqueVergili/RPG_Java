@@ -1,10 +1,6 @@
 import java.util.Objects;
 
-/**
- * Representa um item no jogo, como poções, armas ou outros objetos.
- * A classe é "Comparable" para permitir que listas de itens sejam ordenadas
- * automaticamente, por exemplo, em um inventário.
- */
+
 public class Item implements Comparable<Item> {
 
     private String nome;
@@ -16,7 +12,6 @@ public class Item implements Comparable<Item> {
         this.nome = nome;
         this.descricao = descricao;
         this.efeito = efeito;
-        // Garante que a quantidade seja no mínimo 1.
         this.quantidade = Math.max(1, quantidade);
     }
 
@@ -261,7 +256,7 @@ public class Item implements Comparable<Item> {
         return new Item(
                 "Armadura Pesada",
                 "Uma armadura de placas que dificulta ataques inimigos.",
-                "EQUIPAVEL_DEFESA_20", // <-- NOVO EFEITO!
+                "EQUIPAVEL_DEFESA_20",
                 quantidade
         );
     }
@@ -270,7 +265,7 @@ public class Item implements Comparable<Item> {
         return new Item(
                 "Armadura Hussita",
                 "Uma armadura simples utilizada pelos antigos Hussitas.",
-                "EQUIPAVEL_DEFESA_10", // <-- NOVO EFEITO!
+                "EQUIPAVEL_DEFESA_10",
                 quantidade
         );
     }
@@ -279,7 +274,7 @@ public class Item implements Comparable<Item> {
         return new Item(
                 "Arco Elfico",
                 "Um arco elegante feito pelos elfos, leve e resistente.",
-                "EQUIPAVEL_DANO_20", // <-- NOVO EFEITO!
+                "EQUIPAVEL_DANO_20",
                 quantidade
         );
     }
@@ -292,9 +287,5 @@ public class Item implements Comparable<Item> {
                 quantidade
         );
     }
-
-    // ADICIONE AQUI MÉTODOS PARA CRIAR OUTROS ITENS DO SEU JOGO...
-    // public static Item criarEspadaLonga(int quantidade) { ... }
-    // public static Item criarElixirDeForca(int quantidade) { ... }
 
 }

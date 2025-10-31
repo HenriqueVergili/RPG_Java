@@ -1,7 +1,7 @@
 public class Arqueiro extends Personagem {
 
     public Arqueiro(String nome) {
-        // Formato: super(nome, pontosVida, ataque, defesa, nivel)
+       
     
         super(nome, 100, 12, 8, 1);
 
@@ -11,7 +11,7 @@ public class Arqueiro extends Personagem {
     }
 
     public Arqueiro(Arqueiro original) {
-        // Chama o construtor de cópia da classe "mãe" (Personagem).
+       
         super(original);
     }
 
@@ -26,9 +26,9 @@ public class Arqueiro extends Personagem {
         
         this.pontosVidaMax += 10;
         this.defesa += 2;
-        this.ataque += 4; // Ganha muito ataque base
+        this.ataque += 4;
 
-        // Cura o jogador totalmente ao subir de nível
+     
         this.pontosVida = this.pontosVidaMax;
         
 
